@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(function() {
-    // As soon as the extension is installed, initialize lists in storage
+    // As soon as the extension is installed, initialize data in storage
     chrome.storage.sync.get(
         [
             'goal1',
@@ -44,56 +44,35 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 
-// Callback function
-// function blockUrl(tabId, changeInfo, tab) {
+function urlIncludesAnyInList(url, list) {
+    return list.some((i) => url.includes(i));
+}
 
-//     //1. find out whether mode is include / exclude
-
-//     //2. Get appropriate list from storage
-
-//     //3. Check if URL is in storage
-
-//     //4. If the URL in storage is a substring of the tab URL,
-//     // redirect to the blocking page.
-//     chrome.storage.sync.get(['blockList', 'limitList', 'mode'], function(data) {
-//         if (data.mode === 'block') {
-//             var mode = 'block';
-//             var listToUse = data.blockList;
-//         } else if (data.mode === 'limit') {
-//             var mode = 'limit';
-//             var listToUse = data.limitList;
-//         } else {
-//             return null
-//         }
-
-//         if (changeInfo.hasOwnProperty("url")) {
-//             let tabUrl = changeInfo.url;
-//             if (mode === 'block') {
-//                 for (const i in listToUse) {
-//                     if (tabUrl.includes(i)) {
-//                         let url = chrome.runtime.getURL('block-page.html');
-//                         chrome.tabs.update(tabId, {"url": url}, function(tab) {
-//                             console.log(tab);
-//                         });
-//                     }
-//                 }
-//             } else if (mode === 'limit') {
-//                 for (const i in listToUse) {
-//                     if (!tabUrl.includes(i)) {
-//                         let url = chrome.runtime.getURL('block-page.html');
-//                         chrome.tabs.update(tabId, {"url": url}, function(tab) {
-//                             console.log(tab);
-//                         });
-//                     }
-//                 }
-//             }
-//         }
+function blockUrl(tabId) {
+    let blockUrl = chrome.runtime.getURL('block-page.html');
+    chrome.tabs.update(tabId, {'url': blockUrl}, function() {
+        console.log('Page blocked');
+    });
+}
 
 
-//     });
-//     if (changeInfo.url.includes("facebook.com") || changeInfo.url.includes("twitter.com")) {
-        
-//     }
-// }
+// Callback on tab update
+function checkAndBlockUrl(tabId, changeInfo, tab) {
+    chrome.storage.sync.get(['blockList', 'limitList', 'mode'], function(data) {
+        if (changeInfo.hasOwnProperty('url')) {
+            if (data.mode === 'BLOCK') {
+                if (urlIncludesAnyInList(changeInfo.url, data.blockList)) {
+                    blockUrl(tabId);
+                }
+            } else if (data.mode === 'LIMIT') {
+                if (!urlIncludesAnyInList(changeInfo.url, data.limitList)) {
+                    blockUrl(tabId);
+                }
+            }
+        }
+    });
+}
 
-// chrome.tabs.onUpdated.addListener(blockUrl);
+
+// Add listener on updating tab
+chrome.tabs.onUpdated.addListener(checkAndBlockUrl);
