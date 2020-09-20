@@ -26,12 +26,7 @@
 
   <body>
         <h1>Stop Wasting Time</h1>
-        <br>
-
-        <!-- Settings -->
-        <div>
-            <p>Write down some goals</p>
-            <br>
+        <div id="goals">
             <h3>Goal 1</h3>
             <input id="goal-1" class="wide" type="text">
             <div><input id="description-1" class="description-field" type="text"></div>
@@ -45,17 +40,19 @@
             <div><input id="description-3" class="description-field" type="text"></div>
         </div>
 
-        <div id="manage-ex">
-            <h3>Block list</h3>
-            <input id="block-list-input" class="wide" type="text">
-            <p>All other pages will be allowed</p>
+        <div id="lists">
+            <div class="list-area">
+                <h3>Block list</h3>
+                <p>All other pages will be allowed</p>
+                <div><ul id="block-list"></ul></div>
+            </div>
+            <div class="list-area">
+                <h3>Limit list</h3>
+                <p>All other pages will be blocked</p>
+                <div><ul id="limit-list"></ul></div>
+            </div>
         </div>
-        <div id="manage-inc">
-            <h3>Limit list</h3>
-            <input id="limit-list-input" class="wide" type="text">
-            <p>All other pages will be blocked</p>
-        </div>
-        <br>
+
         <button id="save-options">Save</button>
   </body>
   <script src="options.js"></script>
