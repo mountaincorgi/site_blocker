@@ -1,3 +1,54 @@
+// Function to populate lists
+function populateList(element, list) {
+    for (let i=0; i<list.length; i++) {
+        let item = document.createElement('li');
+        item.className = 'remove-element';
+        item.innerHTML = `<input type="text" value="${list[i]}"><button class="minus">-</button>`;
+        element.appendChild(item);
+    }
+    let addItem = document.createElement('li');
+    addItem.className = 'add-element';
+    addItem.innerHTML = `<input type="text" value=""><button class="plus">+</button>`;
+    element.appendChild(addItem);
+}
+
+
+// Delete button functionality
+function addDeleteListeners() {
+    let deleteButtons = document.getElementsByClassName('minus');
+    for (let i=0; i<deleteButtons.length; i++) {
+        let b = deleteButtons[i];
+        b.addEventListener('click', function() {b.parentElement.remove();});
+    }
+}
+
+
+// Add button functionality
+function addAddListeners() {
+    let addRows = document.getElementsByClassName('add-element');
+    for (let i=0; i<addRows.length; i++) {
+        let row = addRows[i];
+        let button = row.lastElementChild;
+        button.addEventListener('click', function() {
+            let row = button.parentElement;
+            let list = button.parentElement.parentElement;
+            let value = row.firstChild.value;
+            row.firstChild.value = '';
+
+            let newItem = document.createElement('li');
+            newItem.className = 'remove-element';
+            newItem.innerHTML = `<input type="text" value="${value}"><button class="minus">-</button>`;
+            newItem.lastElementChild.addEventListener('click', function() {
+                newItem.remove();
+            });
+            list.insertBefore(
+                newItem, list.childNodes[list.childNodes.length-1]
+            );
+        });
+    }
+}
+
+
 // Populate form from storage
 chrome.storage.sync.get(null, function(data) {
     document.getElementById('goal-1').setAttribute('value', data.goal1);
@@ -7,48 +58,13 @@ chrome.storage.sync.get(null, function(data) {
     document.getElementById('description-2').setAttribute('value', data.description2);
     document.getElementById('description-3').setAttribute('value', data.description3);
 
-    let blockUl = document.getElementById('block-list')
-    debugger;
-    for (let i=0; i<data.blockList.length; i++) {
-        let j = document.createElement("li");
-        j.innerHTML = `<input type="text" value="${data.blockList[i]}"><button class="delete">-</button>`;
-        blockUl.appendChild(j);
-    }
-    let k = document.createElement("li");
-    k.innerHTML = `<input type="text"><button class="add">+</button>`;
-    blockUl.appendChild(k);
+    let blockUl = document.getElementById('block-list');
+    let limitUl = document.getElementById('limit-list');
+    populateList(blockUl, data.blockList);
+    populateList(limitUl, data.limitList);
 
-
-    let limitUl = document.getElementById('limit-list')
-    for (let x=0; x<data.limitList.length; x++) {
-        let y = document.createElement("li");
-        y.innerHTML = `<input type="text" value="${data.limitList[x]}"><button class="delete">-</button>`;
-        limitUl.appendChild(y);
-    }
-    let z = document.createElement("li");
-    z.innerHTML = `<input type="text"><button class="add">+</button>`;
-    limitUl.appendChild(z);
-
-
-    let deleteButtons = document.getElementsByClassName('delete');
-    debugger;
-    for (let b=0; b<deleteButtons.length; b++) {
-        let linsanity = deleteButtons[b];
-        linsanity.addEventListener('click', function() {
-            linsanity.parentElement.remove();
-        });
-    }
-
-
-    let addButtons = document.getElementsByClassName('add');
-    debugger;
-    for (let v=0; v<addButtons.length; v++) {
-        let kobe = addButtons[v];
-        kobe.addEventListener('click', function() {
-            kobe.className = 'delete';
-            kobe.innerHTML = 'do_stuff';
-        });
-    }
+    addDeleteListeners();
+    addAddListeners();
 });
 
 
