@@ -68,6 +68,19 @@ chrome.storage.sync.get(null, function(data) {
 });
 
 
+// Shared function to create lists of input values from list items
+function inputValuesList(list) {
+    let ret = [];
+    for (let i=0; i<list.length; i++) {
+        let v = list[i].firstChild.value.trim();
+        if (v != '') {
+            ret.push(v);
+        }
+    }
+    return ret;
+}
+
+
 // Save options
 let saveButton = document.getElementById('save-options');
 saveButton.addEventListener('click', function() {
@@ -77,8 +90,12 @@ saveButton.addEventListener('click', function() {
     let d1 = document.getElementById('description-1').value;
     let d2 = document.getElementById('description-2').value;
     let d3 = document.getElementById('description-3').value;
-    // let bL = document.getElementById('block-list-input').value;
-    // let lL = document.getElementById('limit-list-input').value;
+
+    let blockListElements = document.querySelectorAll('#block-list .remove-element');
+    let bL = inputValuesList(blockListElements);
+
+    let limitListElements = document.querySelectorAll('#limit-list .remove-element');
+    let lL = inputValuesList(limitListElements);
 
     let updateObject = {
         goal1: g1,
@@ -87,9 +104,9 @@ saveButton.addEventListener('click', function() {
         description1: d1,
         description2: d2,
         description3: d3,
-        // blockList: bL,
-        // limitList: lL
-    } 
+        blockList: bL,
+        limitList: lL
+    }
 
     chrome.storage.sync.set(updateObject, function() {
         console.log('Options successfully saved');
