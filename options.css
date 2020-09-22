@@ -1,9 +1,13 @@
 hr {
     margin-top: 50px;
     margin-bottom: 50px;
+    width: 100px;
 }
 body {
     margin: 70px 10% 70px 10%;
+}
+p {
+    font-size: 16px;
 }
 ul {
     list-style-type: none;
@@ -26,18 +30,60 @@ button {
 .goal-title {
     height: 25px;
     margin-bottom: 10px;
+    border: 3px solid rgb(151, 151, 151);
+    border-radius: 10px;
+    padding: 3px 10px 3px 10px;
+    font-size: 16px;
+}
+.goal-title:focus {
+    border: 3px solid rgb(216, 216, 216);
+    outline: 0;
 }
 .list-item {
-    min-width: 320px;
+    min-width: 300px;
     width: 80%;
     height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
 }
 .description-field {
     height: 70px;
     resize: none;
+    border: 3px solid rgb(151, 151, 151);
+    border-radius: 10px;
+    padding: 8px 10px 8px 10px;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+}
+.description-field:focus {
+    border: 3px solid rgb(216, 216, 216);
+    outline: 0;
+}
+#block-list .list-item {
+    border: 3px solid rgb(177, 65, 65);
+    border-radius: 10px;
+    padding: 3px 10px 3px 10px;
+}
+#block-list .list-item:focus {
+    border: 3px solid rgb(240, 132, 132);
+    outline: 0;
+}
+#limit-list .list-item {
+    border: 3px solid rgb(65, 65, 177);
+    border-radius: 10px;
+    padding: 3px 10px 3px 10px;
+}
+#limit-list .list-item:focus {
+    border: 3px solid rgb(132, 132, 240);
+    outline: 0;
 }
 #footnote {
     margin-top: 50px;
+    font-size: 14px;
+    color: lightgray;
 }
 #save-options {
     width: 100px;
