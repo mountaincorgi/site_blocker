@@ -3,12 +3,12 @@ function populateList(element, list) {
     for (let i=0; i<list.length; i++) {
         let item = document.createElement('li');
         item.className = 'remove-element';
-        item.innerHTML = `<input type="text" value="${list[i]}"><button class="minus">-</button>`;
+        item.innerHTML = `<input type="text" class="list-item" value="${list[i]}"><button class="minus">-</button>`;
         element.appendChild(item);
     }
     let addItem = document.createElement('li');
     addItem.className = 'add-element';
-    addItem.innerHTML = `<input type="text" value=""><button class="plus">+</button>`;
+    addItem.innerHTML = `<input type="text" class="list-item" value=""><button class="plus">+</button>`;
     element.appendChild(addItem);
 }
 
@@ -37,7 +37,7 @@ function addAddListeners() {
 
             let newItem = document.createElement('li');
             newItem.className = 'remove-element';
-            newItem.innerHTML = `<input type="text" value="${value}"><button class="minus">-</button>`;
+            newItem.innerHTML = `<input type="text" class="list-item" value="${value}"><button class="minus">-</button>`;
             newItem.lastElementChild.addEventListener('click', function() {
                 newItem.remove();
             });
@@ -54,9 +54,9 @@ chrome.storage.sync.get(null, function(data) {
     document.getElementById('goal-1').setAttribute('value', data.goal1);
     document.getElementById('goal-2').setAttribute('value', data.goal2);
     document.getElementById('goal-3').setAttribute('value', data.goal3);
-    document.getElementById('description-1').setAttribute('value', data.description1);
-    document.getElementById('description-2').setAttribute('value', data.description2);
-    document.getElementById('description-3').setAttribute('value', data.description3);
+    document.getElementById('description-1').value = data.description1;
+    document.getElementById('description-2').value = data.description2;
+    document.getElementById('description-3').value = data.description3;
 
     let blockUl = document.getElementById('block-list');
     let limitUl = document.getElementById('limit-list');

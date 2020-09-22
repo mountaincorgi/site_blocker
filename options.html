@@ -2,8 +2,20 @@
 <html>
     <head>
         <style>
+            hr {
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
             body {
-                text-align: center;
+                margin: 70px 10% 70px 10%;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0px;
+                margin: 0px;
+            }
+            input {
+                text-align: left;
             }
             button {
                 height: 30px;
@@ -12,11 +24,27 @@
                 margin: 10px;
             }
             .wide {
-                width: 800px;
+                min-width: 380px;
+                width: 80%;
+            }
+            .goal-title {
+                height: 25px;
+                margin-bottom: 10px;
+            }
+            .list-item {
+                min-width: 320px;
+                width: 80%;
+                height: 25px;
             }
             .description-field {
-                width: 800px;
-                height: 60px;
+                height: 70px;
+                resize: none;
+            }
+            .goal {
+                margin: 20px 0px 20px 0px
+            }
+            .footnote {
+                margin-top: 50px;
             }
             #save-options {
                 width: 100px;
@@ -26,26 +54,32 @@
 
   <body>
         <h1>Stop Wasting Time</h1>
+        <hr>
         <div id="goals">
-            <h3>Goal 1</h3>
-            <input id="goal-1" class="wide" type="text">
-            <div><input id="description-1" class="description-field" type="text"></div>
-
-            <h3>Goal 2</h3>
-            <input id="goal-2" class="wide" type="text">
-            <div><input id="description-2" class="description-field" type="text"></div>
-
-            <h3>Goal 3</h3>
-            <input id="goal-3" class="wide" type="text">
-            <div><input id="description-3" class="description-field" type="text"></div>
+            <h3>Goals</h3>
+            <p>Write down some goals</p>
+            <div class="goal">
+                <input id="goal-1" class="wide goal-title" type="text">
+                <textarea id="description-1" class="description-field wide" maxlength="255"></textarea>
+            </div>
+            <div class="goal">
+                <input id="goal-2" class="wide goal-title" type="text">
+                <textarea id="description-2" class="description-field wide" maxlength="255"></textarea>
+            </div>
+            <div class="goal">
+                <input id="goal-3" class="wide goal-title" type="text">
+                <textarea id="description-3" class="description-field wide" maxlength="255"></textarea>
+            </div>
         </div>
 
+        <hr>
         <div id="lists">
             <div class="list-area">
                 <h3>Block list</h3>
                 <p>All other pages will be allowed</p>
                 <div><ul id="block-list"></ul></div>
             </div>
+            <hr>
             <div class="list-area">
                 <h3>Limit list</h3>
                 <p>All other pages will be blocked</p>
@@ -53,7 +87,9 @@
             </div>
         </div>
 
+        <hr>
         <button id="save-options">Save</button>
+        <p class="footnote">mountaincorgi 2020</p>
   </body>
   <script src="options.js"></script>
 </html>
