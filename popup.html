@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            body {
-                width: 200px;
-            }
-        </style>
+        <link rel="stylesheet" href="popup.css">
     </head>
     <body>
         <h3>URL</h3>
         <input id="url-textbox" type="text">
         <br><br>
-        <button id="block-button">Add to block list</button>
-        <button id="limit-button">Add to limit list</button>
+        <button id="block-button" class="main-button">Add to block list</button>
+        <button id="limit-button" class="main-button">Add to limit list</button>
         <br><br>
 
-        <h3>Mode</h3>
-        <button id="block-mode">BLOCK</button>
-        <button id="limit-mode">LIMIT</button>
+        <h3 class="mode-header">Mode</h3>
+        <button id="block-mode" class="foot-button">BLOCK</button>
+        <button id="limit-mode" class="foot-button">LIMIT</button>
 
         <script src="popup.js"></script>
     </body>
