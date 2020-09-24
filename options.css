@@ -44,14 +44,15 @@ button:hover {
 }
 .goal-title {
     height: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+    margin-top: 10px;
     border: 2px solid rgb(151, 151, 151);
     border-radius: 10px;
     padding: 3px 10px 3px 10px;
     font-size: 16px;
 }
 .goal-title:focus {
-    border: 3px solid rgb(216, 216, 216);
+    border: 2px solid rgb(216, 216, 216);
     outline: 0;
 }
 .list-item {
