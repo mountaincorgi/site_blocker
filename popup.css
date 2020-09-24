@@ -1,6 +1,7 @@
 body {
     width: 200px;
     text-align: center;
+    /* color: rgb(151, 151, 151); */
 }
 .main-button {
     height: 25px;
@@ -8,7 +9,12 @@ body {
     margin: 5px;
     text-align: center;
     font-size: 16px;
-    padding: 3px 10px 3px 10px;
+    padding: 3px 0px 3px 0px;
+    border-radius: 10px;
+    outline: 0;
+}
+.main-button:hover {
+    cursor: pointer;
 }
 .mode-header {
     margin-top: 0px
@@ -18,18 +24,81 @@ body {
     width: 80px;
     font-size: 16px;
     margin-bottom: 15px;
-    padding: 3px 10px 3px 10px;
+    padding: 3px 0px 3px 0px;
+    border-radius: 10px;
+    outline: 0;
 }
 #url-textbox {
     padding: 3px 10px 3px 10px;
     font-size: 16px;
     height: 25px;
-    border: 3px solid rgb(151, 151, 151);
+    border: 2px solid rgb(151, 151, 151);
     border-radius: 10px;
     font-family: "Arial", sans-serif;
     width: 160px;
+    /* color: rgb(151, 151, 151); */
 }
 #url-textbox:focus {
     border-color: rgb(216, 216, 216);
     outline: 0;
+}
+#block-button {
+    color: white;
+    background-color: rgb(255, 90, 90);
+    border: 2px solid rgb(255, 90, 90);
+}
+#block-button:hover {
+    border-color: rgb(255, 150, 150);
+}
+#block-button:active {
+    border-color: rgb(255, 150, 150);
+    background-color: rgb(255, 150, 150);
+}
+#limit-button {
+    color: white;
+    background-color: rgb(90, 90, 255);
+    border: 2px solid rgb(90, 90, 255);
+}
+#limit-button:hover {
+    border-color: rgb(150, 150, 255);
+}
+#limit-button:active {
+    border-color: rgb(150, 150, 255);
+    background-color: rgb(150, 150, 255);
+}
+/* #block-mode {
+    color: white;
+    background-color: rgb(255, 90, 90);
+}
+#limit-mode {
+    color: white;
+    background-color: rgb(90, 90, 255);
+} */
+#block-mode {
+    color: rgb(255, 90, 90);
+    background-color: white;
+    border: 2px solid rgb(255, 90, 90);
+}
+#block-mode:hover {
+    cursor: pointer;
+    background-color: rgb(255, 90, 90);
+    color: white;
+}
+#block-mode:active {
+    background-color: rgb(255, 150, 150);
+    border-color: rgb(255, 150, 150);
+}
+#limit-mode {
+    color: rgb(90, 90, 255);
+    background-color: white;
+    border: 2px solid rgb(90, 90, 255);
+}
+#limit-mode:hover {
+    cursor: pointer;
+    background-color: rgb(90, 90, 255);
+    color: white;
+}
+#limit-mode:active {
+    background-color: rgb(150, 150, 255);
+    border-color: rgb(150, 150, 255);
 }
