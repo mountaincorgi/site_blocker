@@ -1,7 +1,6 @@
 body {
     width: 200px;
     text-align: center;
-    /* color: rgb(151, 151, 151); */
 }
 .main-button {
     height: 25px;
@@ -32,11 +31,10 @@ body {
     padding: 3px 10px 3px 10px;
     font-size: 16px;
     height: 25px;
-    border: 2px solid rgb(151, 151, 151);
+    border: 2px solid rgb(190, 190, 190);
     border-radius: 10px;
     font-family: "Arial", sans-serif;
     width: 160px;
-    /* color: rgb(151, 151, 151); */
 }
 #url-textbox:focus {
     border-color: rgb(216, 216, 216);
