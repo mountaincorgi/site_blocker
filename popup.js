@@ -1,21 +1,3 @@
-// Create overlay if not available
-function applyOverlay(url) {
-    let blockPageURL = chrome.runtime.getURL('block-page.html');
-    let optionsPageURL = chrome.runtime.getURL('options.html');
-    let extensionsURL = "chrome://extensions/";
-
-    if (url == blockPageURL || url == optionsPageURL || url == extensionsURL) {
-        document.getElementById('overlay').style.display = 'block';
-    } else {
-        document.getElementById('overlay').style.display = 'none';
-    }
-}
-chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs) {
-    let url = tabs[0].url;
-    applyOverlay(url);
-});
-
-
 // Set current mode styling
 chrome.storage.sync.get('mode', function(data) {
     let currentMode = data.mode;
@@ -45,7 +27,6 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, setPopupUrl);
 // Shared function to add domains to appropriate lists
 function addToList(listName) {
     chrome.storage.sync.get(listName, function(data) {
-        debugger;
         let updateList = data[listName];
         let domain = document.getElementById('url-textbox').value;
         updateList.push(domain);
