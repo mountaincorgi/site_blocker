@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="options.css">    
     </head>
 
@@ -11,8 +12,8 @@
             <h2>Goals</h2>
             <p>Write down some goals, if you want</p>
             <div class="goal">
-                <input id="goal-1" class="wide goal-title" type="text">
-                <textarea id="description-1" class="description-field wide" maxlength="255"></textarea>
+                <input id="goal-1" class="wide goal-title" type="text" placeholder="Write your goal here...">
+                <textarea id="description-1" class="description-field wide" maxlength="255" placeholder="Give a description of your goal..."></textarea>
             </div>
             <div class="goal">
                 <input id="goal-2" class="wide goal-title" type="text">
@@ -34,13 +35,16 @@
             <hr align="left" class="ho3">
             <div class="list-area">
                 <h2>Limit list</h2>
-                <p>Whitelist websites. All other pages will be blocked</p>
+                <p>Whitelist websites. All other sites will be blocked</p>
                 <div><ul id="limit-list"></ul></div>
             </div>
         </div>
 
         <hr align="left" class="ho4">
-        <button id="save-options">Save</button>
+        <div id="save-zone">
+            <button id="save-options">Save</button>
+            <i id="tick" class="material-icons">check_circle_outline</i>
+        </div>
         <p id="footnote">mountaincorgi 2020</p>
   </body>
   <script src="options.js"></script>

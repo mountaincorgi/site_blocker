@@ -8,7 +8,7 @@ function populateList(element, list) {
     }
     let addItem = document.createElement('li');
     addItem.className = 'add-element';
-    addItem.innerHTML = `<input type="text" class="list-item" value=""><button class="plus">+</button>`;
+    addItem.innerHTML = `<input type="text" class="list-item" value="" placeholder="Add a URL..."><button class="plus">+</button>`;
     element.appendChild(addItem);
 }
 
@@ -111,4 +111,9 @@ saveButton.addEventListener('click', function() {
     chrome.storage.sync.set(updateObject, function() {
         console.log('Options successfully saved');
     });
+
+    let tick = document.getElementById('tick');
+    tick.classList.remove('green-transition');
+    void tick.offsetWidth;
+    tick.classList.add('green-transition');
 });

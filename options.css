@@ -54,6 +54,7 @@ button:hover {
 }
 .goal-title:focus {
     border: 2px solid rgb(216, 216, 216);
+    border-bottom: 0px;
     outline: 0;
 }
 .list-item {
@@ -136,4 +137,20 @@ button:hover {
 #save-options:active {
     border-color: rgb(79, 236, 189);
     background-color: rgb(79, 236, 189);
+}
+#tick {
+    color: white;
+    position: relative;
+    top: 8px;
+    left: 5px;
+    width: 1em;
+    height: 1em;
+}
+@keyframes greeny {
+    from {color: rgb(30, 204, 153);}
+    to {color: white;}
+}
+.green-transition {
+    animation-name: greeny;
+    animation-duration: 1s;
 }

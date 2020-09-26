@@ -1,3 +1,19 @@
+// Set current mode styling
+chrome.storage.sync.get('mode', function(data) {
+    let currentMode = data.mode;
+    let blockMode = document.getElementById('block-mode');
+    let limitMode = document.getElementById('limit-mode');
+
+    if (currentMode === 'BLOCK') {
+        blockMode.style.backgroundColor = 'rgb(255, 90, 90)';
+        blockMode.style.color = 'white';
+    } else if (currentMode === 'LIMIT') {
+        limitMode.style.backgroundColor = 'rgb(90, 90, 255)';
+        limitMode.style.color = 'white';
+    }
+});
+
+
 // Set the URL of the popup text box to the current tab's domain
 function setPopupUrl(tabs) {
     let tab = tabs[0];
@@ -35,6 +51,26 @@ function toggleMode(modePressed) {
         }
         chrome.storage.sync.set({'mode': changeMode}, () => {
             console.log(`${changeMode} mode set`);
+
+            let blockMode = document.getElementById('block-mode');
+            let limitMode = document.getElementById('limit-mode');
+
+            if (changeMode === null) {
+                blockMode.style.backgroundColor = 'white';
+                blockMode.style.color = 'rgb(255, 90, 90)';
+                limitMode.style.backgroundColor = 'white';
+                limitMode.style.color = 'rgb(90, 90, 255)';
+            } else if (changeMode === 'BLOCK') {
+                blockMode.style.backgroundColor = 'rgb(255, 90, 90)';
+                blockMode.style.color = 'white';
+                limitMode.style.backgroundColor = 'white';
+                limitMode.style.color = 'rgb(90, 90, 255)';
+            } else if (changeMode === 'LIMIT') {
+                blockMode.style.backgroundColor = 'white';
+                blockMode.style.color = 'rgb(255, 90, 90)';
+                limitMode.style.backgroundColor = 'rgb(90, 90, 255)';
+                limitMode.style.color = 'white';
+            }
         });
     });
 }
@@ -58,3 +94,10 @@ blockModeButton.addEventListener('click', function() {toggleMode('BLOCK');});
 // Toggle limit mode
 let limitModeButton = document.getElementById('limit-mode');
 limitModeButton.addEventListener('click', function() {toggleMode('LIMIT');});
+
+
+// Settings listener
+let settingsButton = document.getElementById('settings');
+settingsButton.addEventListener('click', function() {
+    chrome.runtime.openOptionsPage();
+});
