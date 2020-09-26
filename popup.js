@@ -96,7 +96,7 @@ let limitModeButton = document.getElementById('limit-mode');
 limitModeButton.addEventListener('click', function() {toggleMode('LIMIT');});
 
 
-// Settings listener
+// Add link to options page on popup
 let settingsButton = document.getElementById('settings');
 settingsButton.addEventListener('click', function() {
     chrome.runtime.openOptionsPage();

@@ -1,19 +1,12 @@
-hr {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 80px;
-}
+/* General styling */
 body {
     margin: 70px 10% 70px 10%;
 }
 p {
     font-size: 16px;
 }
-ul {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-}
+
+/* General button styling */
 button {
     height: 30px;
     width: 30px;
@@ -22,6 +15,13 @@ button {
 }
 button:hover {
     cursor: pointer;
+}
+
+/* Horizontal line colors */
+hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 80px;
 }
 .ho1 {
     border-top: 2px solid rgb(190, 190, 190);
@@ -35,38 +35,29 @@ button:hover {
 .ho4 {
     border-top: 2px solid rgb(30, 204, 153);
 }
-.goal {
-    border: 20px 0px 20px 0px
-}
+
+/* General width */
 .wide {
     min-width: 380px;
     width: 80%;
 }
+
+/* Goal field CSS */
 .goal-title {
     height: 25px;
     margin-top: 10px;
-    margin-bottom: 0px;
     border: 2px solid rgb(190, 190, 190);
     border-radius: 10px;
     padding: 3px 10px 3px 10px;
     font-size: 16px;
     border-bottom: 0px;
-}
-.goal-title:focus {
-    border: 2px solid rgb(216, 216, 216);
-    border-bottom: 0px;
     outline: 0;
 }
-.list-item {
-    min-width: 300px;
-    width: 80%;
-    height: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 16px;
+.goal-title:focus {
+    border-color: rgb(216, 216, 216);
 }
+
+/* Description field CSS */
 .description-field {
     height: 70px;
     resize: none;
@@ -75,17 +66,19 @@ button:hover {
     padding: 8px 10px 8px 10px;
     font-family: "Arial", sans-serif;
     font-size: 16px;
-}
-.description-field:focus {
-    border: 2px solid rgb(216, 216, 216);
     outline: 0;
 }
+.description-field:focus {
+    border-color: rgb(216, 216, 216);
+}
+
+/* Plus and minus button CSS */
 .minus {
     color: white;
     background-color: rgb(255, 90, 90);
+    border: 2px solid rgb(255, 90, 90);
     border-radius: 100px;
     font-weight: bold;
-    border: 2px solid rgb(255, 90, 90);
 }
 .minus:active {
     border-color: rgb(255, 150, 150);
@@ -94,44 +87,59 @@ button:hover {
 .plus {
     color: white;
     background-color: rgb(30, 204, 153);
+    border: 2px solid rgb(30, 204, 153);
     border-radius: 100px;
     font-weight: bold;
-    border: 2px solid rgb(30, 204, 153);
 }
 .plus:active {
     border-color: rgb(79, 236, 189);
     background-color: rgb(79, 236, 189);
 }
+
+/* Block and limit list items CSS */
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+.list-item {
+    min-width: 300px;
+    width: 80%;
+    height: 25px;
+    padding: 3px 10px 3px 10px;
+    margin: 5px 0px 5px 0px;
+    font-size: 16px;
+    border-radius: 10px;
+    outline: 0;
+}
 #block-list .list-item {
     border: 2px solid rgb(255, 90, 90);
-    border-radius: 10px;
-    padding: 3px 10px 3px 10px;
 }
 #block-list .list-item:focus {
     border: 2px solid rgb(255, 150, 150);
-    outline: 0;
 }
 #limit-list .list-item {
     border: 2px solid rgb(90, 90, 255);
-    border-radius: 10px;
-    padding: 3px 10px 3px 10px;
 }
 #limit-list .list-item:focus {
     border: 2px solid rgb(150, 150, 255);
-    outline: 0;
 }
+
+/* Footnote CSS */
 #footnote {
     margin-top: 50px;
     font-size: 14px;
     color: lightgray;
 }
+
+/* Save button and tick animation on save CSS */
 #save-options {
     width: 100px;
     margin: 0px;
+    background-color: rgb(30, 204, 153);
     border: 2px solid rgb(30, 204, 153);
     border-radius: 10px;
     color: white;
-    background-color: rgb(30, 204, 153);
     font-weight: bold;
 }
 #save-options:active {
@@ -140,11 +148,9 @@ button:hover {
 }
 #tick {
     color: white;
-    position: relative;
     top: 8px;
     left: 5px;
-    width: 1em;
-    height: 1em;
+    position: relative;
 }
 @keyframes greeny {
     from {color: rgb(30, 204, 153);}

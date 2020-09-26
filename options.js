@@ -112,6 +112,7 @@ saveButton.addEventListener('click', function() {
         console.log('Options successfully saved');
     });
 
+    // Play tick animation on save
     let tick = document.getElementById('tick');
     tick.classList.remove('green-transition');
     void tick.offsetWidth;
