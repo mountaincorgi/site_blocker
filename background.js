@@ -31,16 +31,6 @@ chrome.runtime.onInstalled.addListener(function() {
             }
         }
     );
-
-    // As soon as the extension is installed, initialize rules to allow the popup
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-        chrome.declarativeContent.onPageChanged.addRules(
-            [{
-                conditions: [new chrome.declarativeContent.PageStateMatcher({})],
-                actions: [new chrome.declarativeContent.ShowPageAction()]
-            }]
-        );
-    });
 });
 
 
