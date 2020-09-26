@@ -50,13 +50,17 @@ function blockUrl(tabId) {
 function checkAndBlockUrl(tabId, changeInfo, tab) {
     chrome.storage.sync.get(['blockList', 'limitList', 'mode'], function(data) {
         if (changeInfo.hasOwnProperty('url')) {
-            if (data.mode === 'BLOCK') {
-                if (urlIncludesAnyInList(changeInfo.url, data.blockList)) {
-                    blockUrl(tabId);
-                }
-            } else if (data.mode === 'LIMIT') {
-                if (!urlIncludesAnyInList(changeInfo.url, data.limitList)) {
-                    blockUrl(tabId);
+            if (changeInfo.url.includes("chrome-extension://")) {
+                console.log('This page cannot be blocked');
+            } else {
+                if (data.mode === 'BLOCK') {
+                    if (urlIncludesAnyInList(changeInfo.url, data.blockList)) {
+                        blockUrl(tabId);
+                    }
+                } else if (data.mode === 'LIMIT') {
+                    if (!urlIncludesAnyInList(changeInfo.url, data.limitList)) {
+                        blockUrl(tabId);
+                    }
                 }
             }
         }
