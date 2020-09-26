@@ -1,7 +1,7 @@
 {
     "name": "Stop Wasting Time",
     "version": "1.0",
-    "description": "Block websites you don't need, or focus on the ones you do. Remind yourself of your goals",
+    "description": "Block websites you don't need, and focus on the ones you do. Remind yourself of your goals",
     "permissions": [
         "tabs",
         "activeTab",
