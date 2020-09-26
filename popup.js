@@ -1,3 +1,12 @@
+// Set the URL of the popup text box to the current tab's domain
+function setPopupUrl(tabs) {
+    let tab = tabs[0];
+    let url = new URL(tab.url);
+    let domain = url.hostname;
+    document.getElementById('url-textbox').setAttribute('value', domain);
+}
+
+
 // Set current mode styling
 chrome.storage.sync.get('mode', function(data) {
     let currentMode = data.mode;
@@ -11,17 +20,10 @@ chrome.storage.sync.get('mode', function(data) {
         limitMode.style.backgroundColor = 'rgb(90, 90, 255)';
         limitMode.style.color = 'white';
     }
+
+    // Asynchronous so must be called in callback
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, setPopupUrl);
 });
-
-
-// Set the URL of the popup text box to the current tab's domain
-function setPopupUrl(tabs) {
-    let tab = tabs[0];
-    let url = new URL(tab.url);
-    let domain = url.hostname;
-    document.getElementById('url-textbox').setAttribute('value', domain);
-}
-chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, setPopupUrl);
 
 
 // Shared function to add domains to appropriate lists
