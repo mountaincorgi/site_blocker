@@ -4,10 +4,7 @@
     "description": "Block websites you don't need, and focus on the ones you do. Remind yourself of your goals",
     "permissions": [
         "tabs",
-        "activeTab",
-        "declarativeContent",
-        "storage",
-        "<all_urls>"
+        "storage"
     ],
     "background": {
         "scripts": ["background.js"],
