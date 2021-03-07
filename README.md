@@ -1,14 +1,17 @@
 # site_blocker
-Google chrome extension that blocks websites and reminds you of your goals
+Chrome extension that blocks websites and reminds you of your goals
 
-This extension uses 2 lists which you can edit on the options page:
+This extension uses 2 lists which can be added to from the popup and edited from the options page:
 
-1. BLOCK list
-- URLs added to this list will be blocked when in block mode. All other URLs will be allowed.
+![Screen Shot 2021-03-07 at 16 53 03](https://user-images.githubusercontent.com/42386631/110247733-a2854700-7f65-11eb-8017-a6940ac326a6.png)
 
-2. LIMIT list
-- A whitelist. All URLs added to this list will be allowed when in limit mode. All other URLs will be blocked.
+## BLOCK list
+- URLs added to this list will be blocked when in block mode.
+- All other URLs will be allowed.
 
-Toggle between block mode and limit mode from the popup. Add the URL of the current site you are on to either list from the popup.
+## LIMIT list
+- A whitelist. All URLs added to this list will be allowed when in limit mode.
+- All other URLs will be blocked.
 
-Additionally, you can set some goals you want to be reminded of in the options page.
+
+Optionally, you can set some goals you want to be reminded of in the options page. These will be displayed when attempting to access a blocked site.
